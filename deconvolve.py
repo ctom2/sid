@@ -19,8 +19,8 @@ def deconvolve(y, k, num_iter=2000, lam=1e-2, beta=0.08,pad=None):
                 +hessian_loss(xi[0,:,:,:])*beta \
                 +torch.mean(torch.abs(y_out[:,:,pad:-pad,pad:-pad] - y[:,:,pad:-pad,pad:-pad]))
         
-        if (it % 100 == 0) or (it == num_iter - 1):
-            print(it, loss.item())
+        if (it % 50 == 0) or (it == num_iter - 1):
+            print(' Iteration: {}, loss: {}'.format(it, round(loss.item(),4)))
 
         loss.backward()
         optimizer.step()
