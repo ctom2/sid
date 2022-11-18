@@ -7,8 +7,8 @@ torch.use_deterministic_algorithms(False)
 
 def main():
 
-    im_path='im1_kernel1_img.png'
-    k_path='kernel1.png'
+    im_path='test-images/im1_kernel1_img.png'
+    k_path='test-images/kernel1.png'
     save_path1=im_path.split('/')[-1].split('.')[0] + '_out.png'
 
     print(' -- Reading kernel: {} --'.format(k_path))
