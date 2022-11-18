@@ -20,7 +20,7 @@ def deconvolve(y, k, num_iter=2000, lam=1e-2, beta=0.08,pad=None):
                 +torch.mean(torch.abs(y_out[:,:,pad:-pad,pad:-pad] - y[:,:,pad:-pad,pad:-pad]))
         
         if (it % 50 == 0) or (it == num_iter - 1):
-            print(' Iteration: {}, loss: {}'.format(it, round(loss.item(),4)))
+            print(' Iteration: {}, loss: {}'.format(it, round(loss.item(),6)))
 
         loss.backward()
         optimizer.step()

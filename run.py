@@ -9,7 +9,7 @@ def main():
 
     im_path='test-images/im1_kernel1_img.png'
     k_path='test-images/kernel1.png'
-    save_path1=im_path.split('/')[-1].split('.')[0] + '_out.png'
+    save_path1='out-images/'+im_path.split('/')[-1].split('.')[0] + '_out.png'
 
     print(' -- Reading kernel: {} --'.format(k_path))
     k, _ = get_kernel(k_path)
@@ -25,7 +25,7 @@ def main():
     lw_x2 = lw_x2[:,:,pad:-pad,pad:-pad]
     print(' -- Deconvolution done --')
 
-    print(' -- Saving image --')
+    print(' -- Saving image: {} --'.format(save_path1))
     save_img(torch.clip(lw_x2,0,1), cr, cb, save_path1, bw=True)
 
 if __name__ == '__main__':
